@@ -1,28 +1,32 @@
 {
   "compilerOptions": {
-    "target": "esnext",
-    "useDefineForClassFields": true,
-    "module": "esnext",
-    "moduleResolution": "node",
-    "strict": true,
+    "target": "ESNext",
     "jsx": "preserve",
-    "sourceMap": true,
+    "lib": ["DOM", "ESNext"],
+    "baseUrl": ".",
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "paths": {
+      "@/*": ["src/*"]
+    },
     "resolveJsonModule": true,
-    "isolatedModules": true,
+    "types": [
+      "vite/client",
+      "vite-plugin-vue-layouts/client",
+      "unplugin-vue-router/client"
+    ],
+    "allowJs": true,
+    "strict": true,
+    "strictNullChecks": true,
+    "noUnusedLocals": true,
     "esModuleInterop": true,
-    "lib": ["esnext", "dom"],
-    "skipLibCheck": true,
-    "types": ["vitest/globals"],
-    "jsxImportSource": "vue"
+    "forceConsistentCasingInFileNames": true,
+    "isolatedModules": true,
+    "skipLibCheck": true
   },
-  "extends": "./tsconfig.paths.json",
   "include": [
-    "src",
-    "__tests__",
-    "vite.config.ts",
-    "cypress.config.ts",
-    "commitlint.config.js",
-    ".eslintrc.js"
+    "./src/typed-router.d.ts"
   ],
-  "exclude": ["node_modules", "cypress.config.ts"]
+  "exclude": ["dist", "node_modules", "cypress"],
+  "references": [{ "path": "./tsconfig.node.json" }],
 }

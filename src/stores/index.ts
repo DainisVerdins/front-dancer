@@ -1,2 +1,4 @@
-export * from './count';
-export {storeToRefs} from 'pinia';
+// Utilities
+import { createPinia } from 'pinia'
+
+export default createPinia()

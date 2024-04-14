@@ -1,22 +1,20 @@
-import '@styles/global.css';
-import {createApp} from 'vue';
-import App from './App.vue';
-import {router} from '@routes';
-import {
-  VueQueryPlugin,
-  QueryClient,
-  VueQueryPluginOptions,
-} from '@tanstack/vue-query';
-import {createPinia} from 'pinia';
+/**
+ * main.ts
+ *
+ * Bootstraps Vuetify and other plugins then mounts the App`
+ */
 
-const client = new QueryClient();
+// Plugins
+import { registerPlugins } from '@/plugins'
 
-const app = createApp(App);
+// Components
+import App from './App.vue'
 
-const vueQueryOptions: VueQueryPluginOptions = {
-  queryClient: client,
-};
+// Composables
+import { createApp } from 'vue'
 
-app.use(router).use(createPinia()).use(VueQueryPlugin, vueQueryOptions);
+const app = createApp(App)
 
-app.mount('#app');
+registerPlugins(app)
+
+app.mount('#app')
